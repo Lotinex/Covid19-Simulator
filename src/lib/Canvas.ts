@@ -1,10 +1,10 @@
-import {Entity, UIEntity} from './Entity';
+import Entity from './Entity';
+import {boundClass} from 'autobind-decorator';
 
-export class RenderingEngine {
+@boundClass
+export default class RenderingEngine {
     protected readonly ctx: CanvasRenderingContext2D;
-    protected entities: {
-        [entityID: string]: Entity; 
-    } = {};
+    protected entities: Entity[] = [];
     constructor(options?: Partial<{
         width: number;
         height: number;
@@ -15,10 +15,33 @@ export class RenderingEngine {
         canvas.width = options?.width || window.innerWidth;
         canvas.height = options?.height || window.innerHeight;
         this.ctx = canvas.getContext('2d')!;
+
+        requestAnimationFrame(this.frameLoop)
+    }
+    public draw(options: Graphic.DrawOptions): void {
+        const x = options.x || 0
+        const y = options.y || 0;
+        const w = options.w || 100;
+        const h = options.h || 100;
+        this.ctx.drawImage(options.img.img, x - w / 2, y - h / 2, w , h)
+    }
+    public addEntity(entity: Entity): void {
+        this.entities.push(entity)
+        entity.setRenderer(this)
+    }
+    public renderEntities(): void {
+        for(const entity of this.entities){
+            entity.render()
+        }
     }
     public update(): void {
-
+        for(const entity of this.entities){
+            entity.update()
+        }
     }
-}
-export class UIRenderingEngine extends RenderingEngine {
+    private frameLoop(): void {
+        this.update()
+        this.renderEntities()
+        requestAnimationFrame(this.frameLoop)
+    }
 }

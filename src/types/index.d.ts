@@ -4,17 +4,18 @@ declare namespace Graphic {
         y: number;
     }
     type EntityInitialOptions = {
-        id: string;
+        id?: string;
         w?: number;
         h?: number;
     } & Partial<PurePoint>;
-
-    type UIEntityInitialOptions = {
+    type DrawOptions = {
+        img: import('../lib/Texture').default;
         w?: number;
         h?: number;
     } & Partial<PurePoint>;
-    
-    interface test {
-        name: string;
+    type TextureInitialOptions = {
+        w?: number;
+        h?: number;
+        source: string;
     }
 }
