@@ -1,16 +1,17 @@
 import Entity from './Entity';
 import {boundClass} from 'autobind-decorator';
+import $ from 'jquery';
 
 @boundClass
 export default class RenderingEngine {
     protected readonly ctx: CanvasRenderingContext2D;
     protected entities: Entity[] = [];
-    constructor(options?: Partial<{
-        width: number;
-        height: number;
+    constructor(options: {
+        width?: number;
+        height?: number;
         id: string
-    }>){
-        const canvas = document.createElement('canvas');
+    }){
+        const canvas = document.getElementById(options.id)! as HTMLCanvasElement;
         if(options?.id) canvas.id = options?.id;
         canvas.width = options?.width || window.innerWidth;
         canvas.height = options?.height || window.innerHeight;
