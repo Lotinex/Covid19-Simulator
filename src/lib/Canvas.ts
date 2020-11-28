@@ -17,6 +17,8 @@ export default class RenderingEngine {
         this.ctx = canvas.getContext('2d')!;
 
         requestAnimationFrame(this.frameLoop)
+
+        $(document).on('click', this.onMouseClick)
     }
     public draw(options: Graphic.DrawOptions): void {
         const x = options.x || 0
@@ -46,6 +48,15 @@ export default class RenderingEngine {
             entity.render()
             this.ctx.closePath()
             this.ctx.restore()
+        }
+    }
+    public onMouseClick(e: JQuery.ClickEvent<Document, undefined, Document, Document>): void {
+        const x = e.pageX;
+        const y = e.pageY;
+        for(const entity of this.entities){
+            if(x >= entity.x - entity.w / 2 && x <= entity.x + entity.w / 2 && y >= entity.y - entity.h / 2 && y <= entity.y + entity.h / 2){
+                entity.onClick()
+            }
         }
     }
     public update(): void {

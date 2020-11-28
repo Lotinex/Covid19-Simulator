@@ -55,4 +55,10 @@ export default class Entity {
             img: this.texture!
         })
     }
+    public onMouseOver(): void {
+        
+    }
+    public onClick(): void {
+
+    }
 }

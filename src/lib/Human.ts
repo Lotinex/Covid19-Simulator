@@ -2,7 +2,7 @@ import Entity from './Entity';
 import {PureCircle} from './PureEntity';
 import U from './Utils';
 import {boundClass} from 'autobind-decorator';
-import Main from '../Main';
+import Main from '../page/Main';
 
 @boundClass
 export default class Human extends PureCircle {

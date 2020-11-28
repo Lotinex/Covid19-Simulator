@@ -1,13 +1,13 @@
 import $ from 'jquery';
-import RenderingEngine from './lib/Canvas';
-import Map from './lib/Canvas';
-import Entity from './lib/Entity';
-import {PureCircle} from './lib/PureEntity';
-import U from './lib/Utils';
-import Human from './lib/Human';
-import Framework from './lib/Framework';
-import Building from './lib/Building';
-import {alertIcons} from './lib/Data';
+import RenderingEngine from '../lib/Canvas';
+import Map from '../lib/Canvas';
+import Entity from '../lib/Entity';
+import {PureCircle} from '../lib/PureEntity';
+import U from '../lib/Utils';
+import Human from '../lib/Human';
+import Framework from '../lib/Framework';
+import Building from '../lib/Building';
+import {alertIcons} from '../lib/Data';
 
 export default class Main {
     public static state: MainState = {
@@ -15,6 +15,7 @@ export default class Main {
     };
     public static Stage = new Map({id: 'stage'});
     public static TextRenderer = new RenderingEngine({id: 'textrenderer'});
+    public static BuildngViewer = new RenderingEngine({id: 'buildingViewer'});
     public static Entry(): void {
         U.loop(() => {
             const human = new Human({
@@ -36,6 +37,7 @@ export default class Main {
                 fill: 'gray'
             })
             Main.Stage.addEntity(building)
+            building.setDoor(U.pickRandomElement(['top', 'bottom', 'left', 'right']))
         }, 10)
         Main.alert('info', '2명의 신규 확진자 발생')
         Main.alert('warn', '전국의 모든 학교는 온라인으로 전환됩니다.')
