@@ -5,7 +5,7 @@ import $ from 'jquery';
 @boundClass
 export default class RenderingEngine {
     protected readonly ctx: CanvasRenderingContext2D;
-    protected entities: Entity[] = [];
+    public entities: Entity[] = [];
     constructor(options: {
         width?: number;
         height?: number;
@@ -26,11 +26,13 @@ export default class RenderingEngine {
         this.ctx.drawImage(options.img.img, x - w / 2, y - h / 2, w , h)
     }
     public drawCircle(options: Graphic.DrawCirclesOptions): void {
+        this.ctx.save()
         this.ctx.beginPath()
         this.ctx.fillStyle = options.fill || 'black';
         this.ctx.arc(options.x || 0, options.y || 0, options.radius, 0, Math.PI * 2)
         this.ctx.fill()
         this.ctx.closePath()
+        this.ctx.restore()
     }
     public addEntity(entity: Entity): void {
         this.entities.push(entity)

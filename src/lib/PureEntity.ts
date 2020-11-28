@@ -1,8 +1,8 @@
 import Entity from './Entity';
 
 export class PureCircle extends Entity {
-    private radius: number;
-    private fill: string;
+    public radius: number;
+    protected fill: string;
     constructor(options: Graphic.EntityInitialOptions & {
         radius: number;
         fill?: string;

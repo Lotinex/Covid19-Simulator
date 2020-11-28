@@ -19,7 +19,7 @@ font-family: 'Do Hyeon', sans-serif;
     margin-top: 20px;
     margin-left: 20px;
     background: rgba(0,0,0,0.85);
-    width: 200px;
+    display: inline-block;
 }
 .counter {
     height: 50px;
@@ -40,12 +40,15 @@ font-family: 'Do Hyeon', sans-serif;
 }
 #confirmed-text {
     color: orange;
+    width: 90px;
 }
 #death-text {
     color: red;
+    width: 90px;
 }
 #cure-text {
     color: lightgreen;
+    width: 90px;
 }
 #confirmed-icon {
     color: orange;
@@ -62,6 +65,7 @@ font-family: 'Do Hyeon', sans-serif;
     color: white;
     margin-left: 30px;
     text-align: center;
+    width: 100px;
 }
 
 

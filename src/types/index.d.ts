@@ -4,7 +4,7 @@ declare namespace Graphic {
         y: number;
     }
     type EntityInitialOptions = {
-        id?: string;
+        id: string;
         w?: number;
         h?: number;
     } & Partial<PurePoint>;
@@ -22,4 +22,7 @@ declare namespace Graphic {
         radius: number;
         fill?: string;
     } & Partial<PurePoint>;
+}
+type MainState = {
+    infected: number;
 }

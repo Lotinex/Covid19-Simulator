@@ -7,6 +7,9 @@ export default class U {
             func(i)
         }
     }
+    public static generateRandomID(): string {
+        return Math.random().toString(32).slice(2)
+    }
     public static go(...funcs: Array<(...args: any) => any>): (init: any) => void {
         return (init: any) => {
             funcs.reduce((res, func) => {
