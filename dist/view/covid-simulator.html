@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/33f06ad48a.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&display=swap" rel="stylesheet">
     <title>Covid Simulator Prototype</title>
     <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
     <canvas id="stage"></canvas>
     
-    <div id="count">
+    <div id="counters">
+        <div class="counter">
+            <span class="counter-icon" id="confirmed-icon"><i class="fas fa-virus"></i></span>
+            <span class="counter-text" id="confirmed-text">확진자</span>
+            <span class="counter-number" id="confirmed">0</span>
+        </div>
+        <div class="counter">
+            <span class="counter-icon" id="death-icon"><i class="fas fa-skull"></i></span>
+            <span class="counter-text" id="death-text">사망자</span>
+            <span class="counter-number" id="death">0</span>
+        </div>
+        <div class="counter">
+            <span class="counter-icon" id="cure-icon"><i class="fas fa-briefcase-medical"></i></span>
+            <span class="counter-text" id="cure-text">완치자</span>
+            <span class="counter-number" id="cure">0</span>
+        </div>
+    </div>
     <script src="../js/main.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 import RenderingEngine from './Canvas';
 import Entity from './Entity';
 import Human from './Human';
-
+import {PureCircle} from './PureEntity'
+import U from './Utils';
 
 export default class Map extends RenderingEngine {
     constructor(options: {

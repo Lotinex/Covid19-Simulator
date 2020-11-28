@@ -18,4 +18,8 @@ declare namespace Graphic {
         h?: number;
         source: string;
     }
+    type DrawCirclesOptions = {
+        radius: number;
+        fill?: string;
+    } & Partial<PurePoint>;
 }

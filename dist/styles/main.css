@@ -1,7 +1,107 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Black Han Sans', sans-serif;
+font-family: 'Do Hyeon', sans-serif;
 }
 .canvas {
     position: absolute;
+}
+#stage {
+    background: rgb(211, 211, 211);
+}
+#counters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    background: rgba(0,0,0,0.85);
+    width: 200px;
+}
+.counter {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.counter-text {
+    font-size: 25px;
+    margin-left: 10px;
+}
+.counter-icon {
+    border-right: 1.5px solid white;
+    font-size: 30px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+}
+#confirmed-text {
+    color: orange;
+}
+#death-text {
+    color: red;
+}
+#cure-text {
+    color: lightgreen;
+}
+#confirmed-icon {
+    color: orange;
+}
+#death-icon {
+    color: red;
+}
+#cure-icon {
+    color: lightgreen;
+}
+
+.counter-number {
+    font-size: 25px;
+    color: white;
+    margin-left: 30px;
+    text-align: center;
+}
+
+
+
+
+#t {
+    position: absolute;
+    top:0;
+    left:0;
+    margin-top: 200px;
+    margin-left: 200px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#r {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    top:0;
+    left:0;
+    margin-top: 210px;
+    margin-left: 210px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+}
+
+.a {
+    background: black;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+.b {
+    background: blue;
+    width: 50px;
+    height: 50px;
+    margin: 30px;
 }

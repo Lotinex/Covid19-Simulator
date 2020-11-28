@@ -24,6 +24,22 @@ export default class Entity {
     public setTexture(source: string): void {
         this.texture = new Texture({ source });
     }
+    protected createUpdate(updateMethod: (time: number) => void ): void {
+        const original = updateMethod;
+        updateMethod = function(time){
+            original(time)
+            requestAnimationFrame(updateMethod)
+        };
+        requestAnimationFrame(updateMethod)
+    }
+    public move(point: Partial<Graphic.PurePoint>): void {
+        if(point.x) this.x += point.x;
+        if(point.y) this.y += point.y;
+    }
+    public position(point: Partial<Graphic.PurePoint>): void {
+        if(point.x) this.x = point.x;
+        if(point.y) this.y = point.y;
+    }
     public update(): void {
         //Implement Me
     }
