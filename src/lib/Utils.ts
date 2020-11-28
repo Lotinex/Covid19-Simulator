@@ -2,6 +2,9 @@ export default class U {
     public static rand(start: number, end: number): number {
         return Math.floor((Math.random() * (end-start+1)) + start)
     }
+    public static pickRandomElement(arr: any[]): any {
+        return arr[U.rand(0, arr.length - 1)];
+    }
     public static loop(func: (counter: number) => void, number: number): void {
         for(let i=0; i<number; i++){
             func(i)

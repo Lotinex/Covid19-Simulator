@@ -26,13 +26,13 @@ export default class RenderingEngine {
         this.ctx.drawImage(options.img.img, x - w / 2, y - h / 2, w , h)
     }
     public drawCircle(options: Graphic.DrawCirclesOptions): void {
-        this.ctx.save()
-        this.ctx.beginPath()
         this.ctx.fillStyle = options.fill || 'black';
         this.ctx.arc(options.x || 0, options.y || 0, options.radius, 0, Math.PI * 2)
         this.ctx.fill()
-        this.ctx.closePath()
-        this.ctx.restore()
+    }
+    public drawRect(options: Graphic.DrawRectOptions): void {
+        this.ctx.fillStyle = options.fill || 'black';
+        this.ctx.fillRect(options.x || 0, options.y || 0, options.w, options.h)
     }
     public addEntity(entity: Entity): void {
         this.entities.push(entity)
@@ -41,7 +41,11 @@ export default class RenderingEngine {
     public renderEntities(): void {
         this.clear()
         for(const entity of this.entities){
+            this.ctx.save()
+            this.ctx.beginPath()
             entity.render()
+            this.ctx.closePath()
+            this.ctx.restore()
         }
     }
     public update(): void {

@@ -22,6 +22,11 @@ declare namespace Graphic {
         radius: number;
         fill?: string;
     } & Partial<PurePoint>;
+    type DrawRectOptions = {
+        fill?: string;
+        w: number;
+        h: number;
+    } & Partial<PurePoint>;
 }
 type MainState = {
     infected: number;
