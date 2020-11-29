@@ -190,10 +190,12 @@ font-family: 'Do Hyeon', sans-serif;
     background: rgba(0,0,0,0.85);
     z-index: auto;
     display: none;
+    pointer-events: none;
 }
 #graphicTextDOMArea {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: auto;
+    pointer-events: none;
 }

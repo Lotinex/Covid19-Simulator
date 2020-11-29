@@ -49,4 +49,8 @@ export default class U {
         const caseNumber = U.rand(0, Object.keys(caseObject).length - 1);
         caseObject[Object.keys(caseObject)[caseNumber]]();
     }
+    public static consoleDebug(value: {[variable: string]: any}): void {
+        const variable = Object.keys(value)[0];
+        console.log(`${variable}: ${value[variable]}`)
+    }
 }

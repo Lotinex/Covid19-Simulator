@@ -3,6 +3,7 @@ import Entity from './Entity';
 import Human from './Human';
 import {PureCircle} from './PureEntity'
 import U from './Utils';
+import $ from 'jquery';
 
 export default class Map extends RenderingEngine {
     constructor(options: {
@@ -12,11 +13,11 @@ export default class Map extends RenderingEngine {
     }){
         super(options)
     }
-    public addHuman(human: Human): void {
-        this.addEntity(human)
-    }
-    public setAreas(): void {
-
+    /**@override */
+    public onMouseClick(e: MouseEvent): void {
+        $('#buildingViewer').css('pointer-events', 'all')
+        $('#stage').css('pointer-events', 'none')
+        super.onMouseClick(e)
     }
 }
 

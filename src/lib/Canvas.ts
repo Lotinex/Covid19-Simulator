@@ -1,8 +1,8 @@
 import Entity from './Entity';
-import {boundClass} from 'autobind-decorator';
+import autobind from 'autobind-decorator';
 import $ from 'jquery';
 
-@boundClass
+@autobind
 export default class RenderingEngine {
     protected readonly ctx: CanvasRenderingContext2D;
     public entities: Entity[] = [];
@@ -18,7 +18,7 @@ export default class RenderingEngine {
 
         requestAnimationFrame(this.frameLoop)
 
-        $(document).on('click', this.onMouseClick)
+        canvas.addEventListener('click', e => this.onMouseClick(e))
     }
     public draw(options: Graphic.DrawOptions): void {
         const x = options.x || 0
@@ -50,7 +50,8 @@ export default class RenderingEngine {
             this.ctx.restore()
         }
     }
-    public onMouseClick(e: JQuery.ClickEvent<Document, undefined, Document, Document>): void {
+    public onMouseClick(e: MouseEvent): void {
+        console.log('click: actived')
         const x = e.pageX;
         const y = e.pageY;
         for(const entity of this.entities){

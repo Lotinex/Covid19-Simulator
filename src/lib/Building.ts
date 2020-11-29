@@ -18,11 +18,12 @@ export default class Building extends PureRect {
         $('#graphicTextDOMArea').append(buildingName)
     }
     public onClick(): void {
+        console.log(1)
         $('#buildingViewer').show()
         const building = new Building({
             id: U.generateRandomID(),
-            x: window.innerWidth / 3,
-            y: window.innerHeight / 3,
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2,
             w: this.w * 2,
             h: this.h * 2,
             fill: 'gray'
@@ -32,7 +33,7 @@ export default class Building extends PureRect {
     public setDoor(position: 'top' | 'left' | 'bottom' | 'right'): void {
         const addDoor = (x: number, y: number) => {
             const door = new PureRect({
-                id: '13821673981263',
+                id: U.generateRandomID(),
                 w: position == 'top' || position == 'bottom' ? 17 : 10,
                 h: position == 'left' || position == 'right' ? 17 : 10,
                 x,

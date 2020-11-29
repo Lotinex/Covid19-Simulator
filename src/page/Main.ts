@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import RenderingEngine from '../lib/Canvas';
-import Map from '../lib/Canvas';
+import Map from '../lib/Map';
 import Entity from '../lib/Entity';
 import {PureCircle} from '../lib/PureEntity';
 import U from '../lib/Utils';
@@ -20,8 +20,8 @@ export default class Main {
         U.loop(() => {
             const human = new Human({
                 id: U.generateRandomID(),
-                x: U.rand(-2000, 2000),
-                y: U.rand(-2000, 2000),
+                x: U.rand(0, 1500),
+                y: U.rand(0, 800),
                 radius: 10
             });
             if(U.haveChance(20)) human.infect()
